@@ -26,12 +26,27 @@
         class="[ header ] [ flex-row flex-space-between padding-bottom-32 ]"
       >
         <h2 class="font-size-default">calc</h2>
-        <div class="font-size-12">
+        <div class="[ slider-container ] [ font-size-12 ]">
           <p>THEME</p>
           <div class="[ theme-slider ]">
-            <input name="theme" type="radio" /><label for="theme">1</label>
-            <input name="theme" type="radio" /><label for="theme">2</label>
-            <input name="theme" type="radio" /><label for="theme">3</label>
+            <input
+              name="theme"
+              type="radio"
+              class="theme-radio"
+              id="1"
+              checked
+            /><label class="theme-label" for="1">1</label>
+            <input name="theme" type="radio" class="theme-radio" id="2" /><label
+              class="theme-label"
+              for="2"
+              >2</label
+            >
+            <input name="theme" type="radio" class="theme-radio" id="3" /><label
+              class="theme-label"
+              for="3"
+              >3</label
+            >
+            <div class="theme-indicator"></div>
           </div>
         </div>
       </section>
