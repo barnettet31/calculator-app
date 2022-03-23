@@ -1,0 +1,241 @@
+/* attribution css*/
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/*remove defaults */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --fs-default: minmax(1rem, 2rem);
+  --fs-12: 0.75rem;
+
+  --fs-20: minmax(1rem, 1.25rem);
+
+  --fw-default: 700;
+
+  --padding-24: 1.5rem;
+  --padding-32: 2rem;
+
+  --border-radius: 7px;
+}
+.theme-1 {
+  --main-bg: hsl(222, 26%, 31%);
+  --keypad-bg: hsl(223, 31%, 20%);
+  --screen-bg: hsl(224, 36%, 15%);
+
+  --key-color-main: hsl(225, 21%, 49%);
+  --key-color-main-shadow: hsl(224, 28%, 35%);
+  --key-color-secondary: hsl(6, 63%, 50%);
+  --key-color-secondary-shadow: hsl(6, 70%, 34%);
+  --key-color-tertiary: hsl(30, 25%, 89%);
+  --key-color-teritary-shadow: hsl(28, 16%, 65%);
+
+  --text-numbers: hsl(221, 14%, 31%);
+  --text-letters: #ffffff;
+  --text-equal: #ffffff;
+}
+.theme-2 {
+  --main-bg: hsl(0, 0%, 90%);
+  --keypad-bg: hsl(0, 5%, 81%);
+  --screen-bg: hsl(0, 0%, 93%);
+
+  --key-color-main: hsl(185, 42%, 37%);
+  --key-color-main-shadow: hsl(185, 58%, 25%);
+  --key-color-secondary: hsl(25, 98%, 40%);
+  --key-color-secondary-shadow: hsl(25, 99%, 27%);
+  --key-color-tertiary: hsl(45, 7%, 89%);
+  --key-color-teritary-shadow: hsl(35, 11%, 61%);
+
+  --text-numbers: hsl(60, 10%, 19%);
+  --text-letters: hsl(60, 10%, 19%);
+  --text-equal: #ffffff;
+}
+.theme-3 {
+  --main-bg: hsl(268, 75%, 9%);
+  --keypad-bg: hsl(268, 71%, 12%);
+  --screen-bg: hsl(268, 71%, 12%);
+
+  --key-color-main: hsl(281, 89%, 26%);
+  --key-color-main-shadow: hsl(285, 91%, 52%);
+  --key-color-secondary: hsl(176, 100%, 44%);
+  --key-color-secondary-shadow: hsl(177, 92%, 70%);
+  --key-color-tertiary: hsl(268, 47%, 21%);
+  --key-color-teritary-shadow: hsl(290, 70%, 36%);
+
+  --text-numbers: hsl(52, 100%, 62%);
+  --text-letters: hsl(52, 100%, 62%);
+  --text-equal: hsl(52, 100%, 62%);
+}
+body {
+  /* just for display*/
+  font-family: "Spartan", sans-serif;
+  font-size: var(--fs-default);
+  font-weight: var(--fw-default);
+
+  display: grid;
+  place-items: center;
+  background-color: var(--main-bg);
+  text-align: center;
+}
+
+.main {
+  width: 87%;
+  max-width: 540px;
+}
+.header {
+  color: var(--text-letters);
+}
+.screen {
+  background-color: var(--screen-bg);
+  text-align: right;
+  padding: var(--padding-24) var(--padding-32);
+  border-radius: var(--border-radius);
+  color: var(--text-letters);
+}
+.keyboard {
+  display: grid;
+  grid-auto-rows: 60px;
+  grid-auto-columns: minmax(60px, 100px);
+  gap: 0.8125rem;
+  color: var(--text-numbers);
+  background-color: var(--keypad-bg);
+  margin-top: 1.5em;
+  justify-content: space-between;
+}
+.button {
+  background-color: var(--key-color-tertiary);
+  border: none;
+  transition: all 0.2s ease;
+  padding: 0.75em;
+  box-shadow: inset 0px -2px 0px var(--key-color-teritary-shadow);
+  cursor: pointer;
+  color: var(--text-numbers);
+}
+
+/* utilities*/
+
+.flex-row {
+  display: flex;
+}
+.border-radius {
+  border-radius: var(--border-radius);
+}
+.flex-space-between {
+  justify-content: space-between;
+}
+.padding-24 {
+  padding: var(--padding-24);
+}
+.padding-bottom-32 {
+  padding-bottom: var(--padding-32);
+}
+.font-size-default {
+  font-size: var(--fs-default);
+}
+.font-size-12 {
+  font-size: var(--fs-12);
+}
+.font-size-20 {
+  font-size: var(--fs-20);
+}
+
+.text-letters {
+  color: var(--text-letters);
+  background-color: var(--key-color-main);
+  box-shadow: inset 0px -2px 0px var(--key-color-main-shadow);
+}
+.text-equal {
+  color: var(--text-equal);
+  background-color: var(--key-color-secondary);
+  box-shadow: inset 0px -2px 0px var(--key-color-secondary-shadow);
+}
+.button:hover,
+.button:active {
+  filter: brightness(1.2);
+}
+/* exceptions */
+
+.grid-reset {
+  grid-area: 5 / 1 / 6 / 3;
+}
+.grid-equal {
+  grid-area: 5 / 3 / 6 / 5;
+}

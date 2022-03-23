@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Calculator app</title>
+  </head>
+  <body class="theme-1">
+    <main class="main">
+      <section
+        class="[ header ] [ flex-row flex-space-between padding-bottom-32 ]"
+      >
+        <h2 class="font-size-default">calc</h2>
+        <div class="font-size-12">
+          <p>THEME</p>
+          <div class="[ theme-slider ]">
+            <input name="theme" type="radio" /><label for="theme">1</label>
+            <input name="theme" type="radio" /><label for="theme">2</label>
+            <input name="theme" type="radio" /><label for="theme">3</label>
+          </div>
+        </div>
+      </section>
+      <section class="screen"><h2 id="current-number">0</h2></section>
+      <section class="[ keyboard ] [ padding-24 border-radius ]">
+        <button class="[ button ][ border-radius ]">7</button>
+        <button class="[ button ][ border-radius ]">8</button>
+        <button class="[ button ][ border-radius ]">9</button>
+        <button class="[ button ] [ text-letters font-size-20 border-radius ]">
+          DEL
+        </button>
+        <button class="[ button ][ border-radius ]">4</button>
+        <button class="[ button ][ border-radius ]">5</button>
+        <button class="[ button ][ border-radius ]">6</button>
+        <button class="[ button ][ border-radius ]">+</button>
+        <button class="[ button ][ border-radius ]">1</button>
+        <button class="[ button ][ border-radius ]">2</button>
+        <button class="[ button ][ border-radius ]">3</button>
+        <button class="[ button ][ border-radius ]">-</button>
+        <button class="[ button ][ border-radius ]">.</button>
+        <button class="[ button ][ border-radius ]">0</button>
+        <button class="[ button ][ border-radius ]">/</button>
+        <button class="[ button ][ border-radius ]">x</button>
+        <button
+          class="[ button ] [ grid-reset text-letters font-size-20 border-radius max-width ]"
+        >
+          RESET
+        </button>
+        <button
+          class="[ button ] [ grid-equal text-equal font-size-20 border-radius max-width ]"
+        >
+          =
+        </button>
+      </section>
+    </main>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Travis Barnette</a>.
+    </div>
+    <script src="./design.js"></script>
+    <script src="./calculator.js"></script>
+  </body>
+</html>
