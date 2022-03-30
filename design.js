@@ -13,7 +13,6 @@ const handleThemeSwap = () => {
   if (currentSelected === 4) currentSelected = 1;
   themeRadios.forEach((radio, index) => {
     if (index + 1 === currentSelected) {
-      console.log(radio.id);
       radio.checked = true;
     }
   });

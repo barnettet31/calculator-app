@@ -220,7 +220,7 @@ body {
 .theme-label {
   position: relative;
   top: -75%;
-
+  pointer-events: none;
   cursor: pointer;
 }
 .theme-indicator {

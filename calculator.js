@@ -5,47 +5,51 @@ const equalButton = document.querySelector("button[value='=']");
 const resetButton = document.querySelector("button[value='Reset']");
 const decimalButton = document.querySelector('button[value="."]');
 const screenNumber = document.querySelector("#current-number");
-const calculator = {
-  displayNumber: "0",
-  firstOperator: null,
-  waiting: false,
-  operator: null,
-};
 
-const handleDisplayUpdate = () => {
-  screenNumber.innerText = calculator.displayNumber;
-};
-handleDisplayUpdate();
-const handleNumber = (number) => {
-  if (calculator.displayNumber === "0" && number === "0") return;
-  if (calculator.displayNumber === "0") {
-    calculator.displayNumber = number;
-  } else {
-    calculator.displayNumber += number;
+function createBindedVariable(propertyName, targetID) {
+  let newValue = 0;
+  Object.defineProperty(window, propertyName, {
+    set: function (value) {
+      newValue = value;
+      let targetRef = document.getElementById(targetID);
+      targetRef.innerText = value;
+    },
+    get: function () {
+      return newValue;
+    },
+  });
+}
+createBindedVariable("current", "current-number");
+window.current = 0;
+class Calculator {
+  constrcutor(curentNumber) {
+    this.currentNumber = curentNumber;
   }
-  handleDisplayUpdate();
+  handleNumber(value) {
+    console.log(this.currentNumber);
+    if (this.currentNumber === "0") {
+      this.currentNumber = value;
+      this.updateDisplay();
+    }
+    if (value === "0" && this.currentNumber === "0") return;
+    // this.updateDisplay();
+  }
+  updateDisplay() {
+    window.current = this.currentNumber;
+  }
+}
+const calculator = new Calculator(window.current);
+const handleNumber = (number) => {
+  calculator.handleNumber(number);
 };
 const handleOperand = (operand) => {
   console.log(operand);
 };
 const handleReset = () => {
-  calculator.displayNumber = "0";
   handleDisplayUpdate();
 };
-const handleDelete = () => {
-  if (calculator.displayNumber === "0") return;
-  if (calculator.displayNumber.length === 1) {
-    console.log("oops");
-    calculator.displayNumber = 0;
-  } else {
-    calculator.displayNumber.replace(
-      calculator.displayNumber[calculator.displayNumber.length - 1],
-      ""
-    );
-  }
-  console.log(calculator.displayNumber);
-  handleDisplayUpdate();
-};
+const handleDelete = () => {};
+
 const handleEqual = (equal) => {
   console.log(equal);
 };
