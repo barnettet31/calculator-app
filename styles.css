@@ -205,7 +205,7 @@ body {
   align-items: center;
   justify-content: space-around;
   width: 4.5rem;
-  height: 1.625rem;
+  height: 2rem;
 }
 .theme-slider::before {
   content: " ";
