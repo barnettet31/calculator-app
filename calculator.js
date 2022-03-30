@@ -22,20 +22,77 @@ function createBindedVariable(propertyName, targetID) {
 createBindedVariable("current", "current-number");
 window.current = 0;
 class Calculator {
-  constrcutor(curentNumber) {
+  constrcutor(curentNumber = 0) {
     this.currentNumber = curentNumber;
+    this.operation = undefined;
+    this.previous = undefined;
   }
+
   handleNumber(value) {
-    console.log(this.currentNumber);
-    if (this.currentNumber === "0") {
-      this.currentNumber = value;
-      this.updateDisplay();
-    }
-    if (value === "0" && this.currentNumber === "0") return;
-    // this.updateDisplay();
+    if (!this.currentNumber && value === "0") return;
+    if (this.currentNumber) this.currentNumber += value;
+    if (!this.currentNumber) this.currentNumber = value;
+    this.updateDisplay();
+  }
+  handleDecimal() {
+    if (this.currentNumber.toString().includes(".")) return;
+    this.currentNumber += ".";
+    this.updateDisplay();
   }
   updateDisplay() {
     window.current = this.currentNumber;
+  }
+  chooseOperation(value) {
+    this.operation = value;
+    if (!this.previous) {
+      this.previous = this.currentNumber;
+
+      this.currentNumber = 0;
+
+      this.updateDisplay();
+    }
+  }
+  compute() {
+    let computation;
+    const previous = parseFloat(this.previous);
+    const current = parseFloat(this.currentNumber);
+    if (isNaN(previous) || isNaN(current)) return;
+    switch (this.operation) {
+      case "+":
+        computation = previous + current;
+        break;
+      case "-":
+        computation = previous - current;
+        break;
+      case "/":
+        computation = previous / current;
+        break;
+      case "x":
+        computation = previous * current;
+
+        break;
+      default:
+        return;
+    }
+    this.currentNumber = computation;
+    this.operation = undefined;
+    this.previous = undefined;
+    this.updateDisplay();
+  }
+  delete() {
+    if (this.currentNumber.charAt(-1) === ".") return console.log("decimal");
+    if (this.currentNumber.length >= 2) {
+      this.currentNumber = this.currentNumber.toString().slice(0, -1);
+    } else {
+      console.log("test");
+      this.currentNumber = 0;
+    }
+    this.updateDisplay();
+  }
+  clear() {
+    this.currentNumber = 0;
+
+    this.updateDisplay();
   }
 }
 const calculator = new Calculator(window.current);
@@ -43,24 +100,26 @@ const handleNumber = (number) => {
   calculator.handleNumber(number);
 };
 const handleOperand = (operand) => {
-  console.log(operand);
+  calculator.chooseOperation(operand);
 };
 const handleReset = () => {
-  handleDisplayUpdate();
+  calculator.clear();
 };
-const handleDelete = () => {};
+const handleDelete = () => {
+  calculator.delete();
+};
 
 const handleEqual = (equal) => {
-  console.log(equal);
+  calculator.compute();
 };
 const handleDecimal = (dec) => {
-  console.log(dec);
+  calculator.handleDecimal();
 };
 numbers.forEach((number) => {
   number.addEventListener("click", (e) => handleNumber(e.target.value));
 });
 operands.forEach((operand) => {
-  operand.addEventListener("click", (e) => handleNumber(e.target.value));
+  operand.addEventListener("click", (e) => handleOperand(e.target.value));
 });
 resetButton.addEventListener("click", handleReset);
 equalButton.addEventListener("click", (e) => handleEqual(e.target.value));
