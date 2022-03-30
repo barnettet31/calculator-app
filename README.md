@@ -70,7 +70,7 @@ I'd like to continue to work on css variables for defining themes and modifying 
 
 ### Useful resources
 
-- [Styling Radio Buttons](https://css-tricks.com/zero-trickery-custom-radios-and-checkboxes/) -
+- [Styling Radio Buttons](https://css-tricks.com/zero-trickery-custom-radios-and-checkboxes/) - I love this site for css tips and tricks! Check them out
 - [Window Properties](https://blog.bitsrc.io/demystifying-react-create-one-way-data-binding-with-vanilla-js-cd49b70ec75) - This is an amazing article which helped me finally understand window properties and updating dom elements on them. I'd recommend it to anyone still learning this concept.
 
 ## Author
