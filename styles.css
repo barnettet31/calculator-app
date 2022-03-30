@@ -2,9 +2,10 @@
 .attribution {
   font-size: 11px;
   text-align: center;
+  color: var(--attribution-color);
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--key-color-secondary);
 }
 
 /*remove defaults */
@@ -111,6 +112,8 @@ select {
   --text-numbers: hsl(221, 14%, 31%);
   --text-letters: #ffffff;
   --text-equal: #ffffff;
+
+  --attribution-color: hsl(30, 25%, 89%);
 }
 .theme-2 {
   --main-bg: hsl(0, 0%, 90%);
@@ -127,6 +130,8 @@ select {
   --text-numbers: hsl(60, 10%, 19%);
   --text-letters: hsl(60, 10%, 19%);
   --text-equal: #ffffff;
+
+  --attribution-color: hsl(185, 58%, 25%);
 }
 .theme-3 {
   --main-bg: hsl(268, 75%, 9%);
@@ -143,6 +148,8 @@ select {
   --text-numbers: hsl(52, 100%, 62%);
   --text-letters: hsl(52, 100%, 62%);
   --text-equal: hsl(52, 100%, 62%);
+
+  --attribution-color: hsl(52, 100%, 62%);
 }
 body {
   /* just for display*/
