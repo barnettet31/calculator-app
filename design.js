@@ -4,7 +4,7 @@ const themeIndicator = document.querySelector(".theme-indicator");
 let element = document.body;
 
 let currentSelected = window.matchMedia("(prefers-color-scheme:dark)").matches
-  ? 3
+  ? 1
   : 2;
 themeRadios.forEach((radio, index) => {
   if (index + 1 === currentSelected) radio.checked = true;
