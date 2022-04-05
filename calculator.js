@@ -1,9 +1,4 @@
-const numbers = document.querySelectorAll(".number-js");
-const operands = document.querySelectorAll(".operand-js");
-const deleteButton = document.querySelector("button[value='Delete']");
-const equalButton = document.querySelector("button[value='=']");
-const resetButton = document.querySelector("button[value='Reset']");
-const decimalButton = document.querySelector('button[value="."]');
+const keyboard = document.querySelector(".keyboard");
 const screenNumber = document.querySelector("#current-number");
 
 function createBindedVariable(propertyName, targetID) {
@@ -36,6 +31,7 @@ class Calculator {
   }
   handleDecimal() {
     if (this.currentNumber.toString().includes(".")) return;
+    console.log("this is being fired");
     this.currentNumber += ".";
     this.updateDisplay();
   }
@@ -80,11 +76,10 @@ class Calculator {
     this.updateDisplay();
   }
   delete() {
-    if (this.currentNumber.charAt(-1) === ".") return console.log("decimal");
+    if (this.currentNumber.charAt(-1) === ".") return;
     if (this.currentNumber.length >= 2) {
       this.currentNumber = this.currentNumber.toString().slice(0, -1);
     } else {
-      console.log("test");
       this.currentNumber = 0;
     }
     this.updateDisplay();
@@ -96,35 +91,47 @@ class Calculator {
   }
 }
 const calculator = new Calculator(window.current);
-const handleNumber = (number) => {
-  calculator.handleNumber(number);
-};
-const handleOperand = (operand) => {
-  calculator.chooseOperation(operand);
-};
-const handleReset = () => {
-  calculator.clear();
-};
-const handleDelete = () => {
-  calculator.delete();
-};
 
-const handleEqual = (equal) => {
-  calculator.compute();
-};
-const handleDecimal = (dec) => {
-  calculator.handleDecimal();
-};
-numbers.forEach((number) => {
-  number.addEventListener("click", (e) => handleNumber(e.target.value));
+keyboard.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (e.target.classList.contains("button")) {
+    const buttonValue = e.target.value;
+    switch (buttonValue) {
+      case "7":
+      case "8":
+      case "9":
+      case "4":
+      case "5":
+      case "6":
+      case "1":
+      case "2":
+      case "3":
+      case "0":
+        calculator.handleNumber(buttonValue);
+        break;
+      case ".":
+        calculator.handleDecimal();
+        break;
+      case "=":
+        calculator.compute();
+        break;
+      case "Reset":
+        calculator.clear();
+        break;
+      case "Delete":
+        calculator.delete();
+        break;
+      case "+":
+      case "-":
+      case "/":
+      case "x":
+        calculator.chooseOperation(buttonValue);
+        break;
+      default:
+        break;
+    }
+  }
 });
-operands.forEach((operand) => {
-  operand.addEventListener("click", (e) => handleOperand(e.target.value));
-});
-resetButton.addEventListener("click", handleReset);
-equalButton.addEventListener("click", (e) => handleEqual(e.target.value));
-decimalButton.addEventListener("click", (e) => handleDecimal(e.target.value));
-deleteButton.addEventListener("click", handleDelete);
 
 function add(a, b) {
   return a + b;
